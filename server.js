@@ -45,7 +45,9 @@ io.on('connection', socket => {
             io.to(UserMap[table.members[i]].socketId)
                 .emit('response', 'Click from: ' + name);
     });
-    
+
+    socket.on('disconnect', () => console.log("player disconnected"));
+
 });
 
 server.listen(port, () => console.log(`Listening on port ${port}`));
